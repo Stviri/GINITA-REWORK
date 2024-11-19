@@ -1,26 +1,26 @@
 [
     {
-        "hostname": "DESKTOP-S1I74SP",
-        "ip_address": "192.168.0.8",
-        "cpu_usage": 1.4,
-        "ram_usage": 49.4,
-        "disk_space_usage": 13.9,
-        "available_disk_space": 439574597632,
-        "disk_activity": 0.0,
-        "anydesk_id": "1815975993",
-        "status": "online",
-        "ping": "8.11 ms"
-    },
-    {
         "hostname": "DESKTOP-BK1IMUI",
         "ip_address": "192.168.0.187",
         "cpu_usage": 3.7,
-        "ram_usage": 63.3,
-        "disk_space_usage": 53.1,
-        "available_disk_space": 224315138048,
-        "disk_activity": 0.8,
-        "anydesk_id": "1092660889",
+        "ram_usage": 61.0,
+        "disk_space_usage": 51.5,
+        "available_disk_space": 232189198336,
+        "disk_activity": 0.01,
+        "anydesk_id": "1320614906",
         "status": "offline",
-        "ping": "0.00 ms"
+        "ping": "1.00 ms"
+    },
+    {
+        "hostname": "DESKTOP-S1I74SP",
+        "ip_address": "192.168.0.8",
+        "cpu_usage": 0.0,
+        "ram_usage": 51.5,
+        "disk_space_usage": 13.9,
+        "available_disk_space": 439908519936,
+        "disk_activity": 0.03,
+        "anydesk_id": "1815975993",
+        "status": "offline",
+        "ping": "11.30 ms"
     }
 ]
