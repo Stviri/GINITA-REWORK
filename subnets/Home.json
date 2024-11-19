@@ -5,11 +5,11 @@
         "cpu_usage": 1.4,
         "ram_usage": 49.4,
         "disk_space_usage": 13.9,
-        "available_disk_space": 439575519232,
+        "available_disk_space": 439574597632,
         "disk_activity": 0.0,
         "anydesk_id": "1815975993",
         "status": "online",
-        "ping": "6.03 ms"
+        "ping": "8.11 ms"
     },
     {
         "hostname": "DESKTOP-BK1IMUI",
