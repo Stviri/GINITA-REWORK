@@ -39,6 +39,7 @@ GINITA is a real-time PC monitoring system that allows you to track and manage m
 ### Installation
 
 1. Clone the repository:
+   
 git clone https://github.com/Stviri/GINITA-REWORK.git
 
 
@@ -59,7 +60,7 @@ python client.py
 
 ## 🔧 Configuration
 
-The system uses a subnet mapping configuration to organize devices into branches (view this in server.py:
+The system uses a subnet mapping configuration to organize devices into branches (view this in server.py)
 
 SUBNET_MAPPING = {
 "192.168.0": "Home",
@@ -68,6 +69,7 @@ SUBNET_MAPPING = {
 }
 
 
+Keep in mind that the client must be pointed to the back-end server url, view this in client.py
 
 ## 🎯 Usage
 
