@@ -2,8 +2,6 @@
 
 GINITA is a real-time PC monitoring system that allows you to track and manage multiple computers across different branches. Built with Python Flask and Socket.IO for real-time updates.
 
-![Project Banner](path_to_banner_image.png)
-
 ## 🌟 Features
 
 - **Real-time Monitoring**
@@ -40,26 +38,29 @@ GINITA is a real-time PC monitoring system that allows you to track and manage m
 
 ### Installation
 
-1. Clone the repository
-bash
+1. Clone the repository:
 git clone https://github.com/Stviri/GINITA-REWORK.git
+
+
 cd GINITA-REWORK
 
 
-2. Install Python dependencies
+3. Install Python dependencies:
+
 pip install -r requirements.txt
 
-3. Start the server
-bash
+5. Start the server
+
 python server.py
 
-4. Run the client on monitored PCs
-bash
+6. Run the client on monitored PCs
+
 python client.py
 
 ## 🔧 Configuration
 
 The system uses a subnet mapping configuration to organize devices into branches (view this in server.py:
+
 SUBNET_MAPPING = {
 "192.168.0": "Home",
 "127.0.0": "Localhost",
