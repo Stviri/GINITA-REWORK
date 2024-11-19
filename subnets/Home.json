@@ -1,0 +1,26 @@
+[
+    {
+        "hostname": "DESKTOP-S1I74SP",
+        "ip_address": "192.168.0.8",
+        "cpu_usage": 1.4,
+        "ram_usage": 49.4,
+        "disk_space_usage": 13.9,
+        "available_disk_space": 439575519232,
+        "disk_activity": 0.0,
+        "anydesk_id": "1815975993",
+        "status": "online",
+        "ping": "6.03 ms"
+    },
+    {
+        "hostname": "DESKTOP-BK1IMUI",
+        "ip_address": "192.168.0.187",
+        "cpu_usage": 3.7,
+        "ram_usage": 63.3,
+        "disk_space_usage": 53.1,
+        "available_disk_space": 224315138048,
+        "disk_activity": 0.8,
+        "anydesk_id": "1092660889",
+        "status": "offline",
+        "ping": "0.00 ms"
+    }
+]
