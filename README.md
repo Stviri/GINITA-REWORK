@@ -33,7 +33,6 @@ GINITA is a real-time PC monitoring system that allows you to track and manage m
 ### Prerequisites
 
 - Python 3.8+
-- Node.js (for frontend development)
 - AnyDesk (for remote connections)
 
 ### Installation
