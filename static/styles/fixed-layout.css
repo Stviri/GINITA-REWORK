@@ -1,0 +1,88 @@
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #6f9ff1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6f9ff1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2563eb;
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #6f9ff1 #1a2332;
+}
+
+/* Fixed layout styles that complement existing styles */
+body {
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Prevent body scrolling */
+}
+
+/* Fixed header that preserves existing styles */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #1a2332;
+    height: 64px;
+}
+
+/* Fixed sidebar that preserves existing styles */
+.sidebar {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    bottom: 0;
+    width: 16rem;
+    background-color: #1a2332;
+    overflow-y: auto; /* Allow sidebar content to scroll */
+}
+
+/* Content wrapper */
+.content {
+    margin-top: 64px; /* Match header height */
+    margin-left: 16rem; /* Match sidebar width */
+    height: calc(100vh - 64px);
+    overflow-y: auto; /* Enable scrolling for main content */
+}
+
+/* Main content area */
+main {
+    min-height: min-content; /* Allow content to determine height */
+    padding: 1.5rem;
+}
+
+/* Ensure dropdowns appear above fixed elements */
+.notification-dropdown,
+.user-menu,
+.modal {
+    z-index: 1001;
+}
+
+/* Preserve responsive behavior */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .content {
+        margin-left: 0;
+    }
+} 

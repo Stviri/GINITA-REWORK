@@ -141,27 +141,69 @@ function updateMetrics(data) {
         cpuHostnameElement.textContent = criticalCPU.hostname;
     }
     document.querySelector('.card-critcpu-value').textContent = `${criticalCPU.value}%`;
+
+    // Add notification checks for critical values
+    const criticalThreshold = 80;
+    for (const branch in data) {
+        for (const pc of data[branch]) {
+            if (pc.cpu_usage > criticalThreshold) {
+                addNotification(`Critical CPU usage (${pc.cpu_usage}%) on ${pc.hostname}`, pc, branch);
+            }
+            if (pc.ram_usage > criticalThreshold) {
+                addNotification(`Critical RAM usage (${pc.ram_usage}%) on ${pc.hostname}`, pc, branch);
+            }
+            if (pc.disk_space_usage > criticalThreshold) {
+                addNotification(`Critical disk space usage (${pc.disk_space_usage}%) on ${pc.hostname}`, pc, branch);
+            }
+            if (pc.network_usage?.download_speed > 0.6) {
+                const downloadKBps = (pc.network_usage.download_speed * 1024).toFixed(2);
+                addNotification(`High network download (${downloadKBps} KB/s) on ${pc.hostname}`, pc, branch);
+            }
+            if (pc.network_usage?.upload_speed > 0.6) {
+                const uploadKBps = (pc.network_usage.upload_speed * 1024).toFixed(2);
+                addNotification(`High network upload (${uploadKBps} KB/s) on ${pc.hostname}`, pc, branch);
+            }
+        }
+    }
 }
 
 // Update the socket connection and event listeners
-const socket = io('http://localhost:5000', {
+const socket = io(window.location.origin, {
     reconnection: true,
     reconnectionDelay: 1000,
     reconnectionDelayMax: 5000,
-    reconnectionAttempts: 5
+    reconnectionAttempts: Infinity,
+    timeout: 20000
 });
+
+let isConnected = false;
 
 socket.on('connect', () => {
     console.log('Connected to server');
+    isConnected = true;
     socket.emit('fetch_pc_info');
-});
-
-socket.on('connect_error', (error) => {
-    console.error('Connection error:', error);
+    document.body.classList.remove('disconnected');
 });
 
 socket.on('disconnect', () => {
     console.log('Disconnected from server');
+    isConnected = false;
+    document.body.classList.add('disconnected');
+});
+
+// Add automatic retry mechanism
+function tryReconnect() {
+    if (!isConnected) {
+        socket.connect();
+        setTimeout(tryReconnect, 5000);
+    }
+}
+
+socket.on('connect_error', (error) => {
+    console.error('Connection error:', error);
+    if (!isConnected) {
+        setTimeout(tryReconnect, 5000);
+    }
 });
 
 // Update this listener to match your server's data structure

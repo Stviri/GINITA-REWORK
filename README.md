@@ -4,62 +4,75 @@ GINITA is a real-time PC monitoring system that allows you to track and manage m
 
 ## 🌟 Features
 
-- **Real-time Monitoring**
-  - CPU Usage
-  - RAM Usage
-  - Disk Activity
-  - Network Status
-  - AnyDesk Integration
+### Real-time Monitoring
+- CPU Usage & Performance Metrics
+- RAM Utilization Tracking
+- Disk Activity & Storage Space
+- Network Status & Bandwidth Usage
+- AnyDesk Integration for Remote Access
+- Critical Resource Alerts
+- Real-time Performance Graphs
 
-- **Branch Management**
-  - Organize PCs by branches
-  - Quick branch navigation
-  - Device count per branch
+### Branch Management
+- Subnet-based Branch Organization
+- Automatic Device Categorization
+- Quick Branch Navigation
+- Real-time Device Count per Branch
+- Branch-specific Data Isolation
 
-- **Device Overview**
-  - Status indicators (Online/Offline)
-  - Critical resource alerts
-  - Favorite devices system
-  - Search functionality
+### Device Overview
+- Live Status Indicators (Online/Offline)
+- Resource Usage Alerts
+- Favorite Devices System
+- Advanced Search & Filtering
+- Device Health Indicators
+- Quick Access Controls
 
-- **Detailed Device Information**
-  - Individual device metrics
-  - One-click AnyDesk connection
-  - IP address information
-  - Historical data
+### Detailed Device Information
+- Comprehensive System Metrics
+- One-click AnyDesk Connection
+- IP Address & Network Details
+- Historical Performance Data
+- Storage Device Management
+- System Information Details
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-
 - Python 3.8+
 - AnyDesk (for remote connections)
+- Modern web browser with WebSocket support
+- Network access between clients and server
 
 ### Installation
 
 1. Clone the repository:
-   
-git clone https://github.com/Stviri/GINITA-REWORK.git
 
+git clone https://github.com/Stviri/GINITA-REWORK.git
 
 cd GINITA-REWORK
 
-
-3. Install Python dependencies:
+2. Install Python dependencies:
 
 pip install -r requirements.txt
 
-5. Start the server
+3. Configure the application:
+   - Update subnet mappings in `server.py`
+   - Configure client connection settings in `client.py`
+   - Adjust monitoring thresholds if needed
+
+4. Start the server:
 
 python server.py
 
-6. Run the client on monitored PCs
+5. Deploy the client:
 
 python client.py
 
 ## 🔧 Configuration
 
-The system uses a subnet mapping configuration to organize devices into branches (view this in server.py)
+### Subnet Mapping
+Configure branch organization in server.py:
 
 SUBNET_MAPPING = {
 "192.168.0": "Home",
@@ -67,29 +80,86 @@ SUBNET_MAPPING = {
 "192.168.2": "subnet3",
 }
 
-
-Keep in mind that the client must be pointed to the back-end server url, view this in client.py
+### Monitoring Thresholds
+Default critical thresholds:
+- CPU Usage: 80%
+- RAM Usage: 80%
+- Disk Space: 80%
+- Network Bandwidth: 0.6 MB/s
 
 ## 🎯 Usage
 
-1. Access the dashboard at `http://localhost:5000`
-2. Navigate to different branches using the Branches page
-3. Click on devices to view detailed information
-4. Use the search function to find specific devices
-5. Mark important devices as favorites for quick access
+1. Access the dashboard: `http://localhost:5000`
+2. Navigate branches via the sidebar
+3. Monitor device status in real-time
+4. Click devices for detailed information
+5. Use search/filters to find specific devices
+6. Mark important devices as favorites
+7. Receive notifications for critical events
+8. Connect remotely via AnyDesk integration
 
-## 🔐 Security
+## 🔐 Security Features
 
-- Secure WebSocket connections
-- Branch-specific data isolation
-- No sensitive data storage
+- Secure WebSocket Connections
+- Branch-specific Data Isolation
+- No Sensitive Data Storage
+- IP-based Access Control
+- Rate Limiting Protection
+- Subnet-based Authorization
+
+## 🛠 Technical Stack
+
+### Backend
+- Flask Web Framework
+- Flask-SocketIO
+- Python psutil
+- Gevent WebSocket
+
+### Frontend
+- HTML5/CSS3
+- JavaScript
+- Socket.IO Client
+- Responsive Design
+- Real-time Charts
+
+### Communication
+- WebSocket Protocol
+- HTTP/REST APIs
+- Real-time Events
+
+## 📱 Mobile Support
+- Responsive Design
+- Touch-friendly Interface
+- Mobile-first Approach
+- Adaptive Layouts
+- Performance Optimized
 
 ## 👥 Authors
 
 - **Stviri** - *Initial work* - [GitHub Profile](https://github.com/Stviri)
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🙏 Acknowledgments
 
 - Flask-SocketIO team
 - AnyDesk for remote access capabilities
 - All contributors and testers
+- Open source community
+
+## 📞 Support
+
+For support and questions:
+- Open an issue on GitHub
+- Contact the development team
+- Check documentation

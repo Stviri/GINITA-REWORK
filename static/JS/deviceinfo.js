@@ -1,8 +1,13 @@
-const socket = io('http://localhost:5000', {
+const socket = io(window.location.origin, {
+    transports: ['websocket', 'polling'],
+    upgrade: true,
+    rememberUpgrade: true,
     reconnection: true,
+    reconnectionAttempts: Infinity,
     reconnectionDelay: 1000,
     reconnectionDelayMax: 5000,
-    reconnectionAttempts: 5
+    timeout: 20000,
+    autoConnect: true
 });
 
 // Get URL parameters
@@ -54,7 +59,7 @@ function updateDeviceInfo(data) {
     // Update online status
     const statusElement = document.querySelector('.online-status');
     statusElement.textContent = data.status;
-    statusElement.className = `online-status ${data.status.toLowerCase()}`;
+    statusElement.className = `online-status ${data.status.toUpperCase()}`;
 
     // Update info cards
     document.querySelector('.info-value').textContent = data.ip_address;
@@ -62,10 +67,58 @@ function updateDeviceInfo(data) {
     document.querySelectorAll('.info-value')[2].textContent = data.hostname;
     document.querySelectorAll('.info-value')[3].textContent = `${data.ping || 0}`;
 
+    // Update system info cards
+    if (data.system_info) {
+        document.querySelector('.system-cpu').textContent = data.system_info.cpu_model;
+        document.querySelector('.system-ram').textContent = data.system_info.total_ram;
+        document.querySelector('.system-os').textContent = data.system_info.os_info;
+
+        // Update storage devices information
+        const storageContainer = document.querySelector('.storage-devices');
+        storageContainer.innerHTML = ''; // Clear existing content
+
+        data.system_info.storage_devices.forEach(device => {
+            const deviceElement = document.createElement('div');
+            deviceElement.className = 'storage-device';
+            deviceElement.innerHTML = `
+                <div class="storage-device-header">
+                    <span class="device-name">${device.device}</span>
+                    <span class="device-total">${device.total}GB Total</span>
+                </div>
+                <div class="storage-usage-bar">
+                    <div class="usage-fill" style="width: ${device.percent}%;
+                         background-color: ${getStorageColor(device.percent)}"></div>
+                </div>
+                <div class="storage-details">
+                    <span class="used">${device.used}GB Used</span>
+                    <span class="free">${device.free}GB Free</span>
+                    <span class="percentage">${device.percent}%</span>
+                </div>
+            `;
+            storageContainer.appendChild(deviceElement);
+        });
+    }
+
     // Update usage charts
     updateChart('CPU Usage:', data.cpu_usage || 0);
     updateChart('RAM Usage:', data.ram_usage || 0);
-    updateChart('Disk Usage:', data.disk_usage || 0);
+    updateChart('Disk Usage:', data.disk_activity || 0);
+
+    // Update network speeds in KB/s
+    if (data.network_usage) {
+        const uploadSpeed = (data.network_usage.upload_speed * 1024).toFixed(2); // Convert MB/s to KB/s
+        const downloadSpeed = (data.network_usage.download_speed * 1024).toFixed(2); // Convert MB/s to KB/s
+        
+        document.getElementById('network-upload').textContent = `${uploadSpeed} KB/s`;
+        document.getElementById('network-download').textContent = `${downloadSpeed} KB/s`;
+    }
+}
+
+function getStorageColor(percentage) {
+    if (percentage >= 90) return '#ff4d4d';      // Red for critical
+    if (percentage >= 75) return '#ffd700';      // Yellow for warning
+    if (percentage >= 50) return '#4169e1';      // Blue for moderate
+    return '#2ecc71';                            // Green for good
 }
 
 // Request initial device data when connected

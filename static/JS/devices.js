@@ -1,9 +1,14 @@
 // Initialize Socket.IO connection
-const socket = io('http://localhost:5000', {
+const socket = io(window.location.origin, {
+    transports: ['websocket', 'polling'],
+    upgrade: true,
+    rememberUpgrade: true,
     reconnection: true,
+    reconnectionAttempts: Infinity,
     reconnectionDelay: 1000,
     reconnectionDelayMax: 5000,
-    reconnectionAttempts: 5
+    timeout: 20000,
+    autoConnect: true
 });
 
 // Update the branch cards display with current data
@@ -35,7 +40,7 @@ function updateBranchCards(data) {
                                 </svg>
                             </div>
                         </div>
-                        <span class="card-value">${deviceCount} Devices</span>
+                        <span class="card-value">${deviceCount}</span>
                     </div>
                 </div>
             </a>
@@ -47,7 +52,7 @@ function updateBranchCards(data) {
 
 // Socket event handlers
 socket.on('connect', () => {
-    console.log('Connected to server');
+    console.log('Connected to server with transport:', socket.io.engine.transport.name);
     socket.emit('fetch_pc_info');
 });
 

@@ -1,0 +1,54 @@
+[
+    {
+        "hostname": "DESKTOP-TEST1",
+        "ip_address": "192.168.2.189",
+        "cpu_usage": 8.8,
+        "ram_usage": 88.8,
+        "disk_space_usage": 73.7,
+        "available_disk_space": 125987852288,
+        "disk_activity": 0.29,
+        "anydesk_id": "1853357781",
+        "status": "online",
+        "ping": "1.17 ms",
+        "network_usage": {
+            "upload_speed": 0.0,
+            "download_speed": 0.0,
+            "total_sent": 133658.99,
+            "total_received": 101235.81
+        },
+        "system_info": {
+            "cpu_model": "12th Gen Intel(R) Core(TM) i3-12100",
+            "total_ram": "15.78GB",
+            "storage_devices": [
+                {
+                    "device": "C:\\",
+                    "mountpoint": "C:\\",
+                    "fstype": "NTFS",
+                    "total": 445.73,
+                    "used": 328.4,
+                    "free": 117.34,
+                    "percent": 73.7
+                },
+                {
+                    "device": "D:\\",
+                    "mountpoint": "D:\\",
+                    "fstype": "NTFS",
+                    "total": 465.75,
+                    "used": 80.25,
+                    "free": 385.49,
+                    "percent": 17.2
+                },
+                {
+                    "device": "E:\\",
+                    "mountpoint": "E:\\",
+                    "fstype": "NTFS",
+                    "total": 238.46,
+                    "used": 90.6,
+                    "free": 147.85,
+                    "percent": 38.0
+                }
+            ],
+            "os_info": "Windows 10 Pro"
+        }
+    }
+]

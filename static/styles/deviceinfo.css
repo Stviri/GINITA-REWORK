@@ -204,7 +204,7 @@ h2 {
 .metrics {
     display: grid;
     gap: 1.5rem;
-    margin-bottom: 2rem;
+    
 }
 @media (min-width: 768px) {
     .metrics {
@@ -217,6 +217,8 @@ h2 {
     border-radius: 0.5rem;
     padding: 1.5rem;
     transition: box-shadow 0.3s ease;
+    padding: 16px 20px;
+    margin-bottom: 2rem;
 }
 .card:hover {
     box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
@@ -369,11 +371,174 @@ h2 {
 .online-status{
     padding: 10px;
 }
-.online-status.online{
+.online-status.ONLINE{
     padding: 10px;
-    color: #00acc1;
+    color: #06c774;
 }
-.online-status.offline{
+.online-status.OFFLINE{
     padding: 10px;
-    color: #cc0606;
+    color: #ef4444;
 }
+.network-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4169e1;
+    padding: 10px;
+    background-color: rgba(65, 105, 225, 0.1);
+    border-radius: 8px;
+    min-width: 120px;
+    text-align: center;
+}
+.system-info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background-color: #1f2738;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #374151;
+    width: 100%;
+}
+
+.system-info-cards .info-card {
+    background-color: #1f2738;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #374151;
+    width: 100%;
+    overflow: hidden;
+}
+
+.system-info-cards .info-label {
+    color: #9ca3af;
+}
+
+.system-info-cards .info-value {
+    color: #e5e7eb;
+    font-family: monospace;
+}
+
+.storage-devices {
+    width: 100%;
+    margin-top: 10px;
+    overflow-x: hidden;
+}
+
+.storage-device {
+    background-color: #1f2738;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #374151;
+    word-wrap: break-word;
+}
+
+.storage-device-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 8px;
+    color: #e2e8f0;
+}
+
+.storage-usage-bar {
+    height: 8px;
+    background-color: #4a5568;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}
+
+.usage-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.storage-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.9em;
+    color: #a0aec0;
+}
+
+.device-name {
+    font-weight: bold;
+    word-break: break-word;
+    max-width: 100%;
+}
+
+.device-total {
+    color: #a0aec0;
+    white-space: nowrap;
+}
+
+.circle-chart {
+    max-width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .system-info-cards {
+        grid-template-columns: 1fr;
+        padding: 0.5rem;
+    }
+
+    .info-card {
+        padding: 0.75rem;
+    }
+
+    .storage-device {
+        padding: 8px;
+    }
+
+    .storage-device-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .storage-details {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .circle-chart {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .system-info-cards {
+        padding: 0.25rem;
+        gap: 0.5rem;
+    }
+
+    .info-card {
+        padding: 0.5rem;
+    }
+
+    .storage-device {
+        padding: 6px;
+    }
+
+    .circle-chart {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .system-info-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .storage-devices {
+        max-height: calc(100vh - 300px);
+        overflow-y: auto;
+    }
+}
+

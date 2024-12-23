@@ -8,6 +8,7 @@ from datetime import datetime
 # Initialize Flask application with Socket.IO support
 app = Flask(__name__, static_folder='static')
 app.config['SECRET_KEY'] = 'secret!'
+CORS(app, resources={r"/*": {"origins": "*"}})
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Set up directory for subnet data storage
@@ -18,7 +19,7 @@ os.makedirs(SUBNET_DIR, exist_ok=True)
 SUBNET_MAPPING = {
     "192.168.0": "Home",
     "127.0.0": "Localhost",
-    "192.168.2": "subnet3",
+    "192.168.2": "Test",
 }
 
 # Track connected clients and their status

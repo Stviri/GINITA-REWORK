@@ -2,25 +2,87 @@
     {
         "hostname": "DESKTOP-BK1IMUI",
         "ip_address": "192.168.0.187",
-        "cpu_usage": 3.7,
-        "ram_usage": 61.0,
-        "disk_space_usage": 51.5,
-        "available_disk_space": 232189198336,
-        "disk_activity": 0.01,
-        "anydesk_id": "1320614906",
+        "cpu_usage": 4.0,
+        "ram_usage": 46.2,
+        "disk_space_usage": 73.7,
+        "available_disk_space": 125857337344,
+        "disk_activity": 0.0,
+        "anydesk_id": "1786759130",
         "status": "offline",
-        "ping": "1.00 ms"
+        "ping": "0.00 ms",
+        "network_usage": {
+            "upload_speed": 0.0,
+            "download_speed": 0.0,
+            "total_sent": 133880.5,
+            "total_received": 101818.76
+        },
+        "system_info": {
+            "cpu_model": "12th Gen Intel(R) Core(TM) i3-12100",
+            "total_ram": "15.78GB",
+            "storage_devices": [
+                {
+                    "device": "C:\\",
+                    "mountpoint": "C:\\",
+                    "fstype": "NTFS",
+                    "total": 445.73,
+                    "used": 328.52,
+                    "free": 117.21,
+                    "percent": 73.7
+                },
+                {
+                    "device": "D:\\",
+                    "mountpoint": "D:\\",
+                    "fstype": "NTFS",
+                    "total": 465.75,
+                    "used": 80.25,
+                    "free": 385.49,
+                    "percent": 17.2
+                },
+                {
+                    "device": "E:\\",
+                    "mountpoint": "E:\\",
+                    "fstype": "NTFS",
+                    "total": 238.46,
+                    "used": 90.63,
+                    "free": 147.82,
+                    "percent": 38.0
+                }
+            ],
+            "os_info": "Windows 11 Pro (23H2)"
+        }
     },
     {
         "hostname": "DESKTOP-S1I74SP",
         "ip_address": "192.168.0.8",
-        "cpu_usage": 0.0,
-        "ram_usage": 51.5,
-        "disk_space_usage": 13.9,
-        "available_disk_space": 439908519936,
-        "disk_activity": 0.03,
+        "cpu_usage": 0.8,
+        "ram_usage": 54.6,
+        "disk_space_usage": 14.2,
+        "available_disk_space": 438273175552,
+        "disk_activity": 0.0,
         "anydesk_id": "1815975993",
-        "status": "offline",
-        "ping": "11.30 ms"
+        "status": "online",
+        "ping": "2.18 ms",
+        "network_usage": {
+            "upload_speed": 0.0,
+            "download_speed": 0.0,
+            "total_sent": 8317.5,
+            "total_received": 305177.79
+        },
+        "system_info": {
+            "cpu_model": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+            "total_ram": "7.79GB",
+            "storage_devices": [
+                {
+                    "device": "C:\\",
+                    "mountpoint": "C:\\",
+                    "fstype": "NTFS",
+                    "total": 475.69,
+                    "used": 67.52,
+                    "free": 408.17,
+                    "percent": 14.2
+                }
+            ],
+            "os_info": "Windows 10 Pro"
+        }
     }
 ]
